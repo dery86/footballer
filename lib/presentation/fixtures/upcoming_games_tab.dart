@@ -20,7 +20,7 @@ class _UpcomingGamesTabState extends State<UpcomingGamesTab> {
         itemCount: widget.games?.length??0,
         padding: const EdgeInsetsDirectional.only(bottom: 16),
         itemBuilder: (context, index) {
-          return UpcomingGameItem(widget.games![index]);
+          return  UpcomingGameItem(widget.games![index]);
         },),
     );
   }

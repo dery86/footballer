@@ -23,7 +23,16 @@ class _FinishedGamesTabState extends State<FinishedGamesTab> {
         itemBuilder: (context, index) {
         return InkWell(
           onTap: (){
-            Navigator.of(context).pushNamed(LineupsUi.routeName,);
+            Navigator.of(context).pushNamed(
+                LineupsUi.routeName,
+                arguments: {
+                  RouteKeys.fixtureId: widget.games![index].getId(),
+                  RouteKeys.homeScore: widget.games![index].getHomeScore(),
+                  RouteKeys.awayScore: widget.games![index].getGuestScore(),
+                  RouteKeys.hour:widget.games![index].getHour(),
+                  RouteKeys.date:widget.games![index].getDate(),
+                }
+            );
           },
             child: FinishedGameItem(widget.games![index]),
         );

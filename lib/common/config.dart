@@ -19,3 +19,11 @@ class AppColors{
   static const Color lightGrey = Color(0xffeeeeee);
 
 }
+
+class RouteKeys{
+  static const String fixtureId = "fixtureId";
+  static const String homeScore = "homeScore";
+  static const String awayScore = "awayScore";
+  static const String hour = "hour";
+  static const String date = "date";
+}

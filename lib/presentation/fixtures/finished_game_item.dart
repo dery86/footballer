@@ -122,7 +122,7 @@ class FinishedGameItem extends StatelessWidget {
                 style: const TextStyle(color: Colors.black, fontSize: 18),
               ),
               Text(
-                game?.getDate()??"",
+                " - "+(game?.getDate()??""),
                 style: const TextStyle(fontSize: 12),
               ),
             ],

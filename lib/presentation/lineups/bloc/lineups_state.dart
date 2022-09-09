@@ -1,6 +1,6 @@
 
 import 'package:equatable/equatable.dart';
-import 'package:footballer/domain/entities/remote/lineups/lineup_item.dart';
+import 'package:footballer/presentation/lineups/models/i_lineup.dart';
 
 abstract class LineupsState extends Equatable{
 
@@ -12,7 +12,7 @@ class LineupsLoadingState extends LineupsState {
 }
 
 class LineupsLoadedSuccessState extends LineupsState {
-  final List<LineupItem>? data;
+  final ILineup data;
 
   LineupsLoadedSuccessState(this.data);
 

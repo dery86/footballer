@@ -5,7 +5,7 @@ import 'package:footballer/infrastructure/repositories/fixtures_repository.dart'
 import 'package:footballer/presentation/fixtures/bloc/bloc.dart';
 import 'package:footballer/presentation/fixtures/models/i_finished_game.dart';
 import 'package:footballer/presentation/fixtures/models/i_upcoming_game.dart';
-import 'package:footballer/presentation/fixtures/models/remote_finished_fixture.dart';
+import 'package:footballer/presentation/fixtures/models/remote_finished_game.dart';
 import 'package:footballer/presentation/fixtures/models/remote_upcoming_game.dart';
 import 'package:intl/intl.dart';
 
@@ -63,7 +63,7 @@ class FixturesBloc extends Bloc<FixturesEvent, FixturesState> {
         time = timeFormat.format(d);
       }
       list.add(RemoteFinishedGame()
-      ..date = " - $date"
+      ..date = date
       ..hour = time
       ..id = filtered[i].fixture?.id
       ..leagueName = filtered[i].league?.name
