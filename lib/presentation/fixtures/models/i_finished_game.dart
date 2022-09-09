@@ -1,4 +1,4 @@
-abstract class IFinishedFixtureUiElement{
+abstract class IFinishedGame{
   int? getId();
   String? getLeagueName();
   String? getHomeLogo();

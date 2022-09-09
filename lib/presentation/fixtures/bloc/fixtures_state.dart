@@ -1,6 +1,8 @@
 
 import 'package:equatable/equatable.dart';
 import 'package:footballer/domain/entities/remote/fixtures/fixture_item.dart';
+import 'package:footballer/presentation/fixtures/models/i_finished_game.dart';
+import 'package:footballer/presentation/fixtures/models/i_upcoming_game.dart';
 
 abstract class FixturesState extends Equatable{
 
@@ -12,13 +14,14 @@ class FixturesLoadingState extends FixturesState {
 }
 
 class FixturesLoadedSuccessState extends FixturesState {
-  final List<FixtureItem>? data;
+  final List<IFinishedGame>? finishedGames;
+  final List<IUpcomingGame>? upcomingGames;
 
-  FixturesLoadedSuccessState(this.data);
+  FixturesLoadedSuccessState(this.finishedGames, this.upcomingGames);
 
   @override
   List<Object?> get props => [
-    data
+    finishedGames, upcomingGames
   ];
 }
 

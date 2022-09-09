@@ -1,6 +1,6 @@
-import 'package:footballer/presentation/fixtures/models/i_finished_fixture_ui_element.dart';
+import 'package:footballer/presentation/fixtures/models/i_finished_game.dart';
 
-class RemoteFixture implements IFinishedFixtureUiElement{
+class RemoteFinishedGame implements IFinishedGame{
   int? id;
   String? leagueName;
   String? homeLogo;
@@ -67,4 +67,5 @@ class RemoteFixture implements IFinishedFixtureUiElement{
   @override
   String? getLeagueName() {
     return leagueName;
-  }}
+  }
+}

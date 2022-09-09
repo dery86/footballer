@@ -1,10 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:footballer/common/config.dart';
+import 'package:footballer/presentation/fixtures/models/i_finished_game.dart';
 
 class FinishedGameItem extends StatelessWidget {
-  const FinishedGameItem({Key? key}) : super(key: key);
-
+  const FinishedGameItem(this.game, {Key? key}) : super(key: key);
+  final IFinishedGame? game;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +18,7 @@ class FinishedGameItem extends StatelessWidget {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 5,
             blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
+            offset: const Offset(0, 3), // changes position of shadow
           ),
         ],
       ),
@@ -25,7 +26,7 @@ class FinishedGameItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(height: 16,),
-          const Text("Name Of the league"),
+          Text(game?.getCourtName()??""),
           const SizedBox(height: 12,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -35,18 +36,24 @@ class FinishedGameItem extends StatelessWidget {
                 children: [
                   CachedNetworkImage(
                     imageUrl:
-                        'https://media.api-sports.io/football/teams/8193.png',
+                        game?.getHomeLogo()??"",
                     width: 48,
                     height: 40,
                   ),
                   const SizedBox(
                     height: 8,
                   ),
-                  Text(
-                      "Finland U21",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16
+                  Container(
+                    width: MediaQuery.of(context).size.width*0.26,
+                    alignment: AlignmentDirectional.center,
+                    child: Text(
+                        game?.getHomeName()??"",
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 16
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const Text(
@@ -59,27 +66,33 @@ class FinishedGameItem extends StatelessWidget {
                 ],
               ),
               const SizedBox(width: 16),
-              const Text(
-                "1 - 0",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              Text(
+                "${game?.getHomeScore()??""} - ${game?.getGuestScore()??""}",
+                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(width: 16),
               Column(
                 children: [
                   CachedNetworkImage(
                     imageUrl:
-                        'https://media.api-sports.io/football/teams/8186.png',
+                        game?.getGuestLogo()??"",
                     width: 48,
                     height: 40,
                   ),
                   const SizedBox(
                     height: 8,
                   ),
-                  Text(
-                    "Croatia U21",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16
+                  Container(
+                    width: MediaQuery.of(context).size.width*0.26,
+                    alignment: AlignmentDirectional.center,
+                    child: Text(
+                      game?.getGuestName()??"",
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 16
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const Text(
@@ -105,12 +118,12 @@ class FinishedGameItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "11:00 PM",
-                style: TextStyle(color: Colors.black, fontSize: 18),
+                game?.getHour()??"",
+                style: const TextStyle(color: Colors.black, fontSize: 18),
               ),
               Text(
-                "- Wed 7 July",
-                style: TextStyle(fontSize: 12),
+                game?.getDate()??"",
+                style: const TextStyle(fontSize: 12),
               ),
             ],
           ),

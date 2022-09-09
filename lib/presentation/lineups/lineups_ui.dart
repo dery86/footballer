@@ -46,7 +46,7 @@ class _LineupsUiState extends State<LineupsUi> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            FinishedGameItem(),
+            // FinishedGameItem(),
             const SizedBox(height: 16,),
             Court()
           ],

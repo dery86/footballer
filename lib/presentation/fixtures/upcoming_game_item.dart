@@ -1,12 +1,13 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:footballer/presentation/fixtures/models/i_upcoming_game.dart';
 
 import '../../common/config.dart';
 
 class UpcomingGameItem extends StatelessWidget {
-  const UpcomingGameItem({Key? key}) : super(key: key);
-
+  const UpcomingGameItem(this.game, {Key? key}) : super(key: key);
+  final IUpcomingGame? game;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +21,7 @@ class UpcomingGameItem extends StatelessWidget {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 5,
             blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
+            offset: const Offset(0, 3), // changes position of shadow
           ),
         ],
       ),
@@ -30,19 +31,25 @@ class UpcomingGameItem extends StatelessWidget {
           Column(
             children: [
               CachedNetworkImage(
-                imageUrl: 'https://media.api-sports.io/football/teams/8220.png',
+                imageUrl: game?.getHomeLogo()??"",
                 width: 40,
                 height: 32,
               ),
-              SizedBox(width: 8,),
-              Text(
-                "San Marino U21",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
+              const SizedBox(width: 8,),
+              Container(
+                width: MediaQuery.of(context).size.width*0.2,
+                alignment: AlignmentDirectional.center,
+                child: Text(
+                  game?.getHomeName()??"",
+                  maxLines: 1,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
-              Text(
+              const Text(
                 "Away",
                 style: TextStyle(
                     fontSize: 12,
@@ -52,41 +59,47 @@ class UpcomingGameItem extends StatelessWidget {
             ],
           ),
 
-          SizedBox(width: 16,),
+          const SizedBox(width: 16,),
           Column(
             children: [
               Text(
-                "06:30",
+                game?.getHour()??"",
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.red[400]
                 ),
               ),
               Text(
-                "30 OCT",
-                style: TextStyle(
+                game?.getDate()??"",
+                style: const TextStyle(
                   fontSize: 15,
                 ),
               )
             ],
           ),
-          SizedBox(width: 16,),
+          const SizedBox(width: 16,),
           Column(
             children: [
               CachedNetworkImage(
-                imageUrl: 'https://media.api-sports.io/football/teams/8204.png',
+                imageUrl: game?.getAwayLogo()??"",
                 width: 48,
                 height: 40,
               ),
-              SizedBox(width: 8,),
-              Text(
-                "Latvia U21",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14
+              const SizedBox(width: 8,),
+              Container(
+                width: MediaQuery.of(context).size.width*0.2,
+                alignment: AlignmentDirectional.center,
+                child: Text(
+                  game?.getAwayName()??"",
+                  style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 14
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
-              Text(
+              const Text(
                 "Away",
                 style: TextStyle(
                     fontSize: 12,

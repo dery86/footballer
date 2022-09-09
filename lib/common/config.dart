@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 
 class ApiCredentials{
-  static const String apiKey = "c2cca292d085819e407bb60e954e32bd";
+  static const String apiKey = "5d7f36c54bd973c5c02c957d2bf9bfda";
   static const String host = "v3.football.api-sports.io";
 }
 
