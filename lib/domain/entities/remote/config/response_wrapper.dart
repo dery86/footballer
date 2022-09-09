@@ -1,7 +1,7 @@
 
 
 
-import 'package:footballer/domain/entities/remote/common/response_type.dart';
+import 'package:footballer/domain/entities/remote/config/response_type.dart';
 
 class ResponseWrapper<T> {
   ResponseWrapper({
