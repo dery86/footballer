@@ -22,7 +22,7 @@ class Court extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           child: Image.asset(
             'assets/images/court.jpg',
-            fit: BoxFit.fitWidth,
+            fit: BoxFit.fill,
           ),
         ),
         //home team
