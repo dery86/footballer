@@ -39,7 +39,7 @@ class FinishedGameItem extends StatelessWidget {
                     width: 48,
                     height: 40,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Text(
@@ -49,7 +49,7 @@ class FinishedGameItem extends StatelessWidget {
                       fontSize: 16
                     ),
                   ),
-                  Text(
+                  const Text(
                     "Home",
                     style: TextStyle(
                       fontSize: 12,
@@ -72,7 +72,7 @@ class FinishedGameItem extends StatelessWidget {
                     width: 48,
                     height: 40,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Text(
@@ -82,7 +82,7 @@ class FinishedGameItem extends StatelessWidget {
                         fontSize: 16
                     ),
                   ),
-                  Text(
+                  const Text(
                     "Away",
                     style: TextStyle(
                         fontSize: 12,
@@ -98,7 +98,7 @@ class FinishedGameItem extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width * 0.5,
             height: 1,
-            margin: EdgeInsetsDirectional.only(top: 16, bottom: 4),
+            margin: const EdgeInsetsDirectional.only(top: 16, bottom: 4),
             color: AppColors.greyLine,
           ),
           Row(
