@@ -12,7 +12,7 @@ class FixturesRepository implements FixturesInterface{
   final FixturesRemoteDataSource fixturesRemoteDataSource;
 
   @override
-  Future<ResponseWrapper<List<FixtureItem>>> getFixtures(int season, int leagueId)async{
+  Future<ResponseWrapper<List<FixtureItem>>> getFixtures(int? season, int? leagueId)async{
     try {
       Response responses = await fixturesRemoteDataSource.getFixtures(
           season, leagueId);

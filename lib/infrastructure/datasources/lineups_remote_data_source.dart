@@ -9,7 +9,7 @@ class LineupsRemoteDataSource {
 
   LineupsRemoteDataSource(this.dio);
 
-  Future<Response> getFixtureLineups(int fixtureId) async{
+  Future<Response> getFixtureLineups(int? fixtureId) async{
     Response response = await dio.get(Urls.fixturesLineups,
         queryParameters: {
           "fixture": fixtureId,

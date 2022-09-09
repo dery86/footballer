@@ -12,7 +12,7 @@ class LineupsRepository implements LineupsInterface{
   final LineupsRemoteDataSource lineupsRemoteDataSource;
 
   @override
-  Future<ResponseWrapper<List<LineupItem>>> getFixtureLineups(int fixtureId)async{
+  Future<ResponseWrapper<List<LineupItem>>> getFixtureLineups(int? fixtureId)async{
     try {
       Response responses = await lineupsRemoteDataSource.getFixtureLineups(fixtureId, );
       if (responses.statusCode == 200) {
